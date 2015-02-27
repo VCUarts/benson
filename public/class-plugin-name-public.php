@@ -96,7 +96,19 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, false );
+		wp_enqueue_script( 'angular-route', '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js', array('angular'), $this->version, false );
+
+
+
+		wp_enqueue_script( $this->plugin_name.'app', plugin_dir_url( __FILE__ ) . 'js/app.js', array('angular','angular-route'), $this->version, false );
+
+		wp_enqueue_script( $this->plugin_name.'MainController', plugin_dir_url( __FILE__ ) . 'js/controllers/MainController.js', array( $this->plugin_name.'app' ), $this->version, false );
+
+		wp_enqueue_script( $this->plugin_name.'wpjson', plugin_dir_url( __FILE__ ) . 'js/services/wpjson.js', array( $this->plugin_name.'app' ), $this->version, false );		
+
+
+
 
 	}
 
