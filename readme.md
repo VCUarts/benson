@@ -1,12 +1,4 @@
-# Plugin Name
-
-* Contributors: @luetkemj, @streetlamp
-* Tags: angular, wp-api, json
-* Requires at least: 3.4.0
-* Tested up to: 3.4.0
-* Stable tag: 4.3
-* License: GPLv2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# Benson
 
 Simple Angular integration with the WP REST API. Takes an endpoint and binds it to scope so you can use mustache in your templates and the WordPress HTML editor.
 
