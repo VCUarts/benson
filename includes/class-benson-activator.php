@@ -3,11 +3,11 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       https://github.com/VCUarts
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Benson
+ * @subpackage Benson/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Benson
+ * @subpackage Benson/includes
+ * @author     VCUarts <luetkemj@gmail.com>
  */
-class Plugin_Name_Activator {
+class Benson_Activator {
 
 	/**
 	 * Short Description. (use period)

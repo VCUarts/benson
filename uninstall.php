@@ -19,10 +19,10 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       http://example.com
+ * @link       https://github.com/VCUarts
  * @since      1.0.0
  *
- * @package    Plugin_Name
+ * @package    Benson
  */
 
 // If uninstall not called from WordPress, then exit.

@@ -3,11 +3,11 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/VCUarts
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
+ * @package    Benson
+ * @subpackage Benson/public
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
- * @author     Your Name <email@example.com>
+ * @package    Benson
+ * @subpackage Benson/public
+ * @author     VCUarts <luetkemj@gmail.com>
  */
-class Plugin_Name_Public {
+class Benson_Public {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $benson    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $benson;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Plugin_Name_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
+	 * @param      string    $benson       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $benson, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->benson = $benson;
 		$this->version = $version;
 
 	}
@@ -65,15 +65,15 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Benson_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Benson_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->benson, plugin_dir_url( __FILE__ ) . 'css/benson-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,21 +88,22 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Benson_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Benson_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
 		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, false );
 
-		wp_enqueue_script( $this->plugin_name.'app', plugin_dir_url( __FILE__ ) . 'js/app.js', array('angular'), $this->version, false );
+		wp_enqueue_script( $this->benson.'app', plugin_dir_url( __FILE__ ) . 'js/app.js', array('angular'), $this->version, false );
 
-		wp_enqueue_script( $this->plugin_name.'MainController', plugin_dir_url( __FILE__ ) . 'js/controllers/MainController.js', array( $this->plugin_name.'app' ), $this->version, false );
+		wp_enqueue_script( $this->benson.'MainController', plugin_dir_url( __FILE__ ) . 'js/controllers/MainController.js', array( $this->benson.'app' ), $this->version, false );
 
-		wp_enqueue_script( $this->plugin_name.'wpjson', plugin_dir_url( __FILE__ ) . 'js/services/wpjson.js', array( $this->plugin_name.'app' ), $this->version, false );		
+		wp_enqueue_script( $this->benson.'wpjson', plugin_dir_url( __FILE__ ) . 'js/services/wpjson.js', array( $this->benson.'app' ), $this->version, false );		
+
 
 
 

@@ -8,20 +8,20 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              https://github.com/VCUarts
  * @since             1.0.0
- * @package           Made_By
+ * @package           Benson
  *
  * @wordpress-plugin
- * Plugin Name:       VCUarts - Made By
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       Provides api access and templating for /madeby pages
+ * Plugin Name:       Benson
+ * Plugin URI:        https://github.com/VCUarts/benson.git
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
  * Version:           1.0.0
  * Author:            VCUarts
  * Author URI:        https://github.com/VCUarts
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       madeby
+ * Text Domain:       benson
  * Domain Path:       /languages
  */
 
@@ -32,30 +32,30 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
+ * This action is documented in includes/class-benson-activator.php
  */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
+function activate_benson() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-benson-activator.php';
+	Benson_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
+ * This action is documented in includes/class-benson-deactivator.php
  */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+function deactivate_benson() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-benson-deactivator.php';
+	Benson_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_benson' );
+register_deactivation_hook( __FILE__, 'deactivate_benson' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-benson.php';
 
 /**
  * Begins execution of the plugin.
@@ -66,10 +66,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_benson() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new Benson();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_benson();
