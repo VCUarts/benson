@@ -26,3 +26,10 @@ use ng-bind-html like this
 ```
 <div ng-bind-html="content"></div>
 ```
+
+### Why Benson?
+
+Because he is a gumball machine, also known as The Park's manager. [[source]](http://regularshow.wikia.com/wiki/Benson)
+
+![benson](http://i.imgur.com/jJZwrIE.png)
+
