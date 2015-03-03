@@ -26,5 +26,3 @@ use ng-bind-html like this
 ```
 <div ng-bind-html="content"></div>
 ```
-
-## Changelog 
