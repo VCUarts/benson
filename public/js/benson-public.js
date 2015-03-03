@@ -6,7 +6,7 @@
 
     var app = angular.module("madeby", ['ngSanitize']);
 
-    var MainController = function ($scope, wpjson, $log) {
+    var MainController = function ($scope, wpjson) {
 
       var onMakersComplete = function(data){
         $scope.makers = data;
@@ -20,7 +20,7 @@
 
     };
 
-    app.controller("MainController", ["$scope", "wpjson","$log", MainController]);
+    app.controller("MainController", ["$scope", "wpjson", MainController]);
 
 }());
 (function () {
