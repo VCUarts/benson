@@ -77,8 +77,6 @@ class Benson {
 		$this->define_public_hooks();
 
 
-
-
 		/**
 		 * Make sure that all custom fields get attached to wp-api json output
 		 *
@@ -93,24 +91,20 @@ class Benson {
 			add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 		}
 
-
-
-
-
 		// dump cdata in header
 		function madeby_endpoint(){
+
+global $post;
+$wp_json_url = get_post_meta( $post->ID, '_my_meta_value_key', true );
+
 			echo "<script type='text/javascript'>
 						//<![CDATA[
-						var madebyurl = 'http://madeby.dev/wp-json/posts?type=maker&filter[category_name]=rvaallday';
+						var madebyurl = '$wp_json_url';
 						//]]>
 						</script>";
 		}
 
 		add_action('wp_head', 'madeby_endpoint');
-
-	
-
-
 
 	}
 
@@ -248,5 +242,6 @@ class Benson {
 	public function get_version() {
 		return $this->version;
 	}
+
 
 }
