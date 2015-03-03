@@ -1,10 +1,10 @@
 (function(){
-    var app = angular.module("madeby", []);
+    var app = angular.module("benson", []);
 }());
 // Code goes here
 (function () {
 
-    var app = angular.module("madeby", ['ngSanitize']);
+    var app = angular.module("benson", ['ngSanitize']);
 
     var MainController = function ($scope, wpjson) {
 
@@ -38,7 +38,7 @@
         };
     };
 
-    var module = angular.module("madeby");
+    var module = angular.module("benson");
     module.factory("wpjson", wpjson);
 
 }());

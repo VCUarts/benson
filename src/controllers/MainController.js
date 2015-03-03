@@ -1,7 +1,7 @@
 // Code goes here
 (function () {
 
-    var app = angular.module("madeby", ['ngSanitize']);
+    var app = angular.module("benson", ['ngSanitize']);
 
     var MainController = function ($scope, wpjson) {
 

@@ -13,7 +13,7 @@
         };
     };
 
-    var module = angular.module("madeby");
+    var module = angular.module("benson");
     module.factory("wpjson", wpjson);
 
 }());

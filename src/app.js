@@ -1,3 +1,3 @@
 (function(){
-    var app = angular.module("madeby", []);
+    var app = angular.module("benson", []);
 }());
