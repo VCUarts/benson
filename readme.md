@@ -24,6 +24,21 @@ Use [this](https://github.com/WP-API/WP-API) for now. Eventually it'll be part o
 
 Ummm... you can't. It's not done yet... sorry.
 
+### How do I template?
+
+Use ng-app="benson" and ng-controller="MainController" like this:
+
+```html
+<div ng-app="benson">
+  <div ng-controller="MainController">
+    {{title}}
+    {{content}}
+  </div>
+</div>
+``` 
+
+Check out the [Angular docs](https://docs.angularjs.org/guide/templates) for more info.
+
 ### How do I sanitize html? 
 
 use ng-bind-html like this
