@@ -97,6 +97,8 @@ class Benson_Public {
 		 */
 
 		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, false );
+		wp_enqueue_script( 'angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-sanitize.js', array(), $this->version, false );
+
 
 		wp_enqueue_script( $this->benson.'app', plugin_dir_url( __FILE__ ) . 'js/benson-public.js', array('angular'), $this->version, false );
 

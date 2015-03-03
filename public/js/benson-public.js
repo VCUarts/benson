@@ -1,1 +1,44 @@
-!function(){angular.module("madeby",[])}(),function(){var a=angular.module("madeby"),b=function(a,b){var c=function(b){a.makers=b},d=function(b){a.error='Could not fetch data because "'+b+'"'};b.getMakers().then(c,d)};a.controller("MainController",["$scope","wpjson","$log",b])}(),function(){var a=function(a){var b=function(){return a.get(madebyurl).then(function(a){return a.data})};return{getMakers:b}};a.$inject=["$http"];var b=angular.module("madeby");b.factory("wpjson",a)}();
+(function(){
+    var app = angular.module("madeby", []);
+}());
+// Code goes here
+(function () {
+
+    var app = angular.module("madeby", ['ngSanitize']);
+
+    var MainController = function ($scope, wpjson, $log) {
+
+      var onMakersComplete = function(data){
+        $scope.makers = data;
+      }
+
+      var onError = function (response) {
+        $scope.error = 'Could not fetch data because "' + response + '"';
+      };
+
+      wpjson.getMakers().then(onMakersComplete, onError);
+
+    };
+
+    app.controller("MainController", ["$scope", "wpjson","$log", MainController]);
+
+}());
+(function () {
+
+    var wpjson = function ($http) {
+
+        var getMakers = function () {
+            return $http.get(madebyurl).then(function (response) {
+                return response.data;
+            });
+        };
+
+        return {
+            getMakers: getMakers
+        };
+    };
+
+    var module = angular.module("madeby");
+    module.factory("wpjson", wpjson);
+
+}());
