@@ -92,6 +92,20 @@ class Plugin_Name {
 		}
 
 
+
+
+
+		// dump cdata in header
+		function madeby_endpoint(){
+			echo "<script type='text/javascript'>
+						//<![CDATA[
+						var madebyurl = 'http://madeby.dev/wp-json/posts?type=maker&filter[category_name]=rvaallday';
+						//]]>
+						</script>";
+		}
+
+		add_action('wp_head', 'madeby_endpoint');
+
 	}
 
 	/**
