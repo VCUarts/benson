@@ -29,21 +29,21 @@ module.exports = function(grunt) {
                 src: [
                     'src/**/*.js'
                 ],
-                dest: 'public/js/madeby.js',
+                dest: 'public/js/benson-public.js',
             }
         },
 
         ngAnnotate: {
             scripts: {
-                src: 'public/js/madeby.js',
-                dest: 'public/js/madeby.js'
+                src: 'public/js/benson-public.js',
+                dest: 'public/js/benson-public.js'
             }
         },
 
         uglify: {
             scripts: {
-                src: 'public/js/madeby.js',
-                dest: 'public/js/madeby.js'
+                src: 'public/js/benson-public.js',
+                dest: 'public/js/benson-public.js'
             }
         },
 
