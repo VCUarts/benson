@@ -16,6 +16,10 @@ Supports ACF.
 
 ## Frequently Asked Questions 
 
+### Where do I put my endpoint? 
+
+Ummm... you can't. It's not done yet... sorry.
+
 ### How do I sanitize html? 
 
 use ng-bind-html like this
