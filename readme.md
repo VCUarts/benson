@@ -16,6 +16,10 @@ Supports ACF.
 
 ## Frequently Asked Questions 
 
+### Where do I get my endpoint?
+
+Use [this](https://github.com/WP-API/WP-API) for now. Eventually it'll be part of core.
+
 ### Where do I put my endpoint? 
 
 Ummm... you can't. It's not done yet... sorry.
