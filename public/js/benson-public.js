@@ -8,15 +8,15 @@
 
     var MainController = function ($scope, wpjson) {
 
-      var onMakersComplete = function(data){
-        $scope.makers = data;
+      var onDataComplete = function(data){
+        $scope.data = data;
       }
 
       var onError = function (response) {
         $scope.error = 'Could not fetch data because "' + response + '"';
       };
 
-      wpjson.getMakers().then(onMakersComplete, onError);
+      wpjson.getData().then(onDataComplete, onError);
 
     };
 
@@ -27,14 +27,14 @@
 
     var wpjson = function ($http) {
 
-        var getMakers = function () {
-            return $http.get(madebyurl).then(function (response) {
+        var getData = function () {
+            return $http.get(wpjson_url).then(function (response) {
                 return response.data;
             });
         };
 
         return {
-            getMakers: getMakers
+            getData: getData
         };
     };
 

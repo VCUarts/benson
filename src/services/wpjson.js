@@ -2,14 +2,14 @@
 
     var wpjson = function ($http) {
 
-        var getMakers = function () {
-            return $http.get(madebyurl).then(function (response) {
+        var getData = function () {
+            return $http.get(wpjson_url).then(function (response) {
                 return response.data;
             });
         };
 
         return {
-            getMakers: getMakers
+            getData: getData
         };
     };
 

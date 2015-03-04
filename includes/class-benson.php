@@ -92,19 +92,19 @@ class Benson {
 		}
 
 		// dump cdata in header
-		function madeby_endpoint(){
+		function benson_cdata(){
 
-global $post;
-$wp_json_url = get_post_meta( $post->ID, '_my_meta_value_key', true );
+			global $post;
+			$wpjson_url = get_post_meta( $post->ID, 'wpjson_url', true );
 
 			echo "<script type='text/javascript'>
 						//<![CDATA[
-						var madebyurl = '$wp_json_url';
+						var wpjson_url = '$wpjson_url';
 						//]]>
 						</script>";
 		}
 
-		add_action('wp_head', 'madeby_endpoint');
+		add_action('wp_head', 'benson_cdata');
 
 	}
 

@@ -187,7 +187,7 @@ class Benson_Admin {
 		$mydata = sanitize_text_field( $_POST['myplugin_new_field'] );
 
 		// Update the meta field.
-		update_post_meta( $post_id, '_my_meta_value_key', $mydata );
+		update_post_meta( $post_id, 'wpjson_url', $mydata );
 	}
 
 
@@ -202,7 +202,7 @@ class Benson_Admin {
 		wp_nonce_field( 'myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce' );
 
 		// Use get_post_meta to retrieve an existing value from the database.
-		$value = get_post_meta( $post->ID, '_my_meta_value_key', true );
+		$value = get_post_meta( $post->ID, 'wpjson_url', true );
 
 		// Display the form, using the current value.
 		echo '<label for="myplugin_new_field">';

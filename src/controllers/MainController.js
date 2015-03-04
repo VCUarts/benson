@@ -5,15 +5,15 @@
 
     var MainController = function ($scope, wpjson) {
 
-      var onMakersComplete = function(data){
-        $scope.makers = data;
+      var onDataComplete = function(data){
+        $scope.data = data;
       }
 
       var onError = function (response) {
         $scope.error = 'Could not fetch data because "' + response + '"';
       };
 
-      wpjson.getMakers().then(onMakersComplete, onError);
+      wpjson.getData().then(onDataComplete, onError);
 
     };
 
