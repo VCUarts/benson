@@ -76,36 +76,6 @@ class Benson {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
-
-		/**
-		 * Make sure that all custom fields get attached to wp-api json output
-		 *
-		 * @since    1.0.0
-		 */
-		function wp_api_encode_acf($data,$post,$context){
-			$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
-			return $data;
-		}
-
-		if( function_exists('get_fields') ){
-			add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
-		}
-
-		// dump cdata in header
-		function benson_cdata(){
-
-			global $post;
-			$wpjson_url = get_post_meta( $post->ID, 'wpjson_url', true );
-
-			echo "<script type='text/javascript'>
-						//<![CDATA[
-						var wpjson_url = '$wpjson_url';
-						//]]>
-						</script>";
-		}
-
-		add_action('wp_head', 'benson_cdata');
-
 	}
 
 	/**
@@ -197,6 +167,12 @@ class Benson {
 	private function define_public_hooks() {
 
 		$plugin_public = new Benson_Public( $this->get_benson(), $this->get_version() );
+
+		$this->loader->add_action('wp_head', $plugin_public, 'benson_cdata');
+
+		if( function_exists('get_fields') ){
+			$this->loader->add_filter('json_prepare_post', $plugin_public, 'wp_api_encode_acf', 10, 3);
+		}
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
