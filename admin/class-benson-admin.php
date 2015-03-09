@@ -104,20 +104,6 @@ class Benson_Admin {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/**
 	 * Hook into the appropriate actions when the class is constructed.
 	 */
@@ -129,17 +115,17 @@ class Benson_Admin {
 	 * Adds the meta box container.
 	 */
 	public function add_meta_box( $post_type ) {
-            $post_types = array('post', 'page');     //limit meta box to certain post types
-            if ( in_array( $post_type, $post_types )) {
-		add_meta_box(
-			'some_meta_box_name'
-			,__( 'Some Meta Box Headline', 'myplugin_textdomain' )
-			,array( $this, 'render_meta_box_content' )
-			,$post_type
-			,'advanced'
-			,'high'
-		);
-            }
+    $post_types = array('post', 'page');     //limit meta box to certain post types
+    if ( in_array( $post_type, $post_types )) {
+			add_meta_box(
+				'wpjson_url'
+				,__( 'Paste your wpjson url here.', 'myplugin_textdomain' )
+				,array( $this, 'render_meta_box_content' )
+				,$post_type
+				,'advanced'
+				,'high'
+			);
+    }
 	}
 
 	/**
@@ -205,21 +191,11 @@ class Benson_Admin {
 		$value = get_post_meta( $post->ID, 'wpjson_url', true );
 
 		// Display the form, using the current value.
-		echo '<label for="myplugin_new_field">';
-		_e( 'Description for this field', 'myplugin_textdomain' );
+		echo '<label for="benson_new_field">';
+		_e( '', 'benson_textdomain' );
 		echo '</label> ';
-		echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field"';
+		echo '<input type="text" id="benson_new_field" name="benson_new_field"';
                 echo ' value="' . esc_attr( $value ) . '" size="100" />';
 	}
-
-
-
-
-
-
-
-
-
-
 
 }
