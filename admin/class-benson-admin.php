@@ -106,87 +106,87 @@ class Benson_Admin {
 
 
 
-	public function benson_ACF() {
-		
-		// start ACF export code
-		if( function_exists('register_field_group') ):
+public function benson_ACF() {
+	
+	// start ACF export code
+	if( function_exists('register_field_group') ):
 
-		register_field_group(array (
-			'key' => 'group_55099a4fecd7b',
-			'title' => 'Benson Options',
-			'fields' => array (
-				array (
-					'key' => 'field_55099a78a9a0c',
-					'label' => 'wpjson_url',
-					'name' => 'benson_wpjson_url',
-					'prefix' => '',
-					'type' => 'text',
-					'instructions' => 'Paste the wpjson_url here.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array (
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-					'readonly' => 0,
-					'disabled' => 0,
+	register_field_group(array (
+		'key' => 'group_55099a4fecd7b',
+		'title' => 'Benson Options',
+		'fields' => array (
+			array (
+				'key' => 'field_55099a78a9a0c',
+				'label' => 'wpjson_url',
+				'name' => 'benson_wpjson_url',
+				'prefix' => '',
+				'type' => 'text',
+				'instructions' => 'Paste the wpjson_url here.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
 				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+				'readonly' => 0,
+				'disabled' => 0,
+			),
+			array (
+				'key' => 'field_55099a9fa9a0d',
+				'label' => 'Angular Modules',
+				'name' => 'benson_angular_modules',
+				'prefix' => '',
+				'type' => 'checkbox',
+				'instructions' => 'Check the angular modules you need.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array (
+					'animate' => 'Animate',
+					'sanitize' => 'Sanitize',
+				),
+				'default_value' => array (
+				),
+				'layout' => 'vertical',
+			),
+		),
+		'location' => array (
+			array (
 				array (
-					'key' => 'field_55099a9fa9a0d',
-					'label' => 'Angular Modules',
-					'name' => 'benson_angular_modules',
-					'prefix' => '',
-					'type' => 'checkbox',
-					'instructions' => 'Check the angular modules you need.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array (
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'choices' => array (
-						'animate' => 'Animate',
-						'sanitize' => 'Sanitize',
-					),
-					'default_value' => array (
-					),
-					'layout' => 'vertical',
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
 				),
 			),
-			'location' => array (
+			array (
 				array (
-					array (
-						'param' => 'post_type',
-						'operator' => '==',
-						'value' => 'post',
-					),
-				),
-				array (
-					array (
-						'param' => 'post_type',
-						'operator' => '==',
-						'value' => 'page',
-					),
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
 				),
 			),
-			'menu_order' => 0,
-			'position' => 'normal',
-			'style' => 'default',
-			'label_placement' => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen' => '',
-		));
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+	));
 
-		endif;
+	endif;
 		// end ACF export code
-	}
+}
 
 
 

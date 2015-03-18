@@ -76,8 +76,6 @@ class Benson {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
-<<<<<<< HEAD
-
 		/**
 		 * Make sure that all custom fields get attached to wp-api json output
 		 *
@@ -92,8 +90,6 @@ class Benson {
 			add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 		}
 
-=======
->>>>>>> b9db4f352916c310b5bdcce1177dacdfc56a8b22
 	}
 
 	/**
