@@ -1,10 +1,10 @@
-(function(){
-    var app = angular.module("benson", []);
-}());
+var ngModules = [];
+if ( angular_animate ) { ngModules.push(angular_animate) };
+if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
+
 // Code goes here
 (function () {
-
-    var app = angular.module("benson", ['ngSanitize']);
+    var app = angular.module("benson", ngModules);
 
     var MainController = function ($scope, wpjson) {
 
@@ -23,6 +23,7 @@
     app.controller("MainController", ["$scope", "wpjson", MainController]);
 
 }());
+
 (function () {
 
     var wpjson = function ($http) {

@@ -91,21 +91,6 @@ class Benson {
 			add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 		}
 
-		// dump cdata in header
-		function benson_cdata(){
-
-			global $post;
-			$wpjson_url = get_post_meta( $post->ID, 'wpjson_url', true );
-
-			echo "<script type='text/javascript'>
-						//<![CDATA[
-						var wpjson_url = '$wpjson_url';
-						//]]>
-						</script>";
-		}
-
-		add_action('wp_head', 'benson_cdata');
-
 	}
 
 	/**

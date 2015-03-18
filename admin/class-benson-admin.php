@@ -52,8 +52,7 @@ class Benson_Admin {
 		$this->benson = $benson;
 		$this->version = $version;
 
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
-		add_action( 'save_post', array( $this, 'save' ) );
+		add_action( 'after_setup_theme', array( $this, 'benson_ACF') );
 
 	}
 
@@ -104,98 +103,91 @@ class Benson_Admin {
 	}
 
 
-	/**
-	 * Hook into the appropriate actions when the class is constructed.
-	 */
-	// public function __construct() {
+
+
+
+	public function benson_ACF() {
 		
-	// }
+		// start ACF export code
+		if( function_exists('register_field_group') ):
 
-	/**
-	 * Adds the meta box container.
-	 */
-	public function add_meta_box( $post_type ) {
-            $post_types = array('post', 'page');     //limit meta box to certain post types
-            if ( in_array( $post_type, $post_types )) {
-		add_meta_box(
-			'benson_wp_json_url'
-			,__( 'Benson wp-json URL', 'benson_textdomain' )
-			,array( $this, 'render_meta_box_content' )
-			,$post_type
-			,'advanced'
-			,'high'
-		);
-            }
+		register_field_group(array (
+			'key' => 'group_55099a4fecd7b',
+			'title' => 'Benson Options',
+			'fields' => array (
+				array (
+					'key' => 'field_55099a78a9a0c',
+					'label' => 'wpjson_url',
+					'name' => 'benson_wpjson_url',
+					'prefix' => '',
+					'type' => 'text',
+					'instructions' => 'Paste the wpjson_url here.',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array (
+					'key' => 'field_55099a9fa9a0d',
+					'label' => 'Angular Modules',
+					'name' => 'benson_angular_modules',
+					'prefix' => '',
+					'type' => 'checkbox',
+					'instructions' => 'Check the angular modules you need.',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array (
+						'animate' => 'Animate',
+						'sanitize' => 'Sanitize',
+					),
+					'default_value' => array (
+					),
+					'layout' => 'vertical',
+				),
+			),
+			'location' => array (
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'post',
+					),
+				),
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'page',
+					),
+				),
+			),
+			'menu_order' => 0,
+			'position' => 'normal',
+			'style' => 'default',
+			'label_placement' => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen' => '',
+		));
+
+		endif;
+		// end ACF export code
 	}
 
-	/**
-	 * Save the meta when the post is saved.
-	 *
-	 * @param int $post_id The ID of the post being saved.
-	 */
-	public function save( $post_id ) {
-	
-		/*
-		 * We need to verify this came from the our screen and with proper authorization,
-		 * because save_post can be triggered at other times.
-		 */
 
-		// Check if our nonce is set.
-		if ( ! isset( $_POST['benson_inner_custom_box_nonce'] ) )
-			return $post_id;
-
-		$nonce = $_POST['benson_inner_custom_box_nonce'];
-
-		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $nonce, 'benson_inner_custom_box' ) )
-			return $post_id;
-
-		// If this is an autosave, our form has not been submitted,
-                //     so we don't want to do anything.
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-			return $post_id;
-
-		// Check the user's permissions.
-		if ( 'page' == $_POST['post_type'] ) {
-
-			if ( ! current_user_can( 'edit_page', $post_id ) )
-				return $post_id;
-	
-		} else {
-
-			if ( ! current_user_can( 'edit_post', $post_id ) )
-				return $post_id;
-		}
-
-		/* OK, its safe for us to save the data now. */
-
-		// Sanitize the user input.
-		$mydata = sanitize_text_field( $_POST['benson_new_field'] );
-
-		// Update the meta field.
-		update_post_meta( $post_id, 'wpjson_url', $mydata );
-	}
-
-
-	/**
-	 * Render Meta Box content.
-	 *
-	 * @param WP_Post $post The post object.
-	 */
-	public function render_meta_box_content( $post ) {
-	
-		// Add an nonce field so we can check for it later.
-		wp_nonce_field( 'benson_inner_custom_box', 'benson_inner_custom_box_nonce' );
-
-		// Use get_post_meta to retrieve an existing value from the database.
-		$value = get_post_meta( $post->ID, 'wpjson_url', true );
-
-		// Display the form, using the current value.
-		echo '<label for="benson_new_field">';
-		_e( '', 'benson_textdomain' );
-		echo '</label> ';
-		echo '<input type="text" id="benson_new_field" name="benson_new_field"';
-                echo ' value="' . esc_attr( $value ) . '" size="100" />';
-	}
 
 }
