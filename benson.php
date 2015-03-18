@@ -72,4 +72,8 @@ function run_benson() {
 	$plugin->run();
 
 }
-run_benson();
+
+// Only run if ACF is available
+if ( function_exists('get_field') ) {
+  run_benson();
+}

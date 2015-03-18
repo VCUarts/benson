@@ -51,7 +51,7 @@ class Benson_Public {
 
 		$this->benson = $benson;
 		$this->version = $version;
-
+		
 		add_action( 'wp_head', array( $this, 'benson_cdata') );
 
 	}
