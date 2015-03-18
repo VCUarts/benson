@@ -57,6 +57,44 @@ class Benson_Public {
 	}
 
 	/**
+	 * Make sure that all custom fields get attached to wp-api json output
+	 *
+	 * @since    1.0.0
+	 */
+	public function wp_api_encode_acf($data, $post, $context) {
+		$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
+		return $data;
+	}
+
+	/**
+	 * Retrieve our endpoint URL from the meta field
+	 *
+	 * @since    1.0.0
+	 */
+	public function benson_jsonurl() {
+		global $post;
+		$wpjson_url = get_post_meta( $post->ID, 'wpjson_url', true );
+
+		return $wpjson_url;
+	}
+
+	/**
+	 * Dump cdata in header
+	 *
+	 * @since    1.0.0
+	 */
+	public function benson_cdata() {
+
+		echo "<script type='text/javascript'>
+					//<![CDATA[
+					var wpjson_url = '" . $this->benson_jsonurl() . "';
+					//]]>
+					</script>";
+
+	}
+
+
+	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
@@ -75,7 +113,9 @@ class Benson_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->benson, plugin_dir_url( __FILE__ ) . 'css/benson-public.css', array(), $this->version, 'all' );
+		if ( !empty($this->benson_jsonurl()) ) {
+			wp_enqueue_style( $this->benson, plugin_dir_url( __FILE__ ) . 'css/benson-public.css', array(), $this->version, 'all' );
+		}
 
 	}
 
@@ -98,6 +138,7 @@ class Benson_Public {
 		 * class.
 		 */
 
+<<<<<<< HEAD
 		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
 
 		global $post;
@@ -113,14 +154,24 @@ class Benson_Public {
 
 	}
 
+=======
+		if ( !empty($this->benson_jsonurl()) ) {
+			wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, false );
+			wp_enqueue_script( 'angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-sanitize.js', array(), $this->version, false );
+>>>>>>> b9db4f352916c310b5bdcce1177dacdfc56a8b22
 
 	// dump cdata in header
 	public function benson_cdata(){
 
+<<<<<<< HEAD
 		global $post;
 		$benson_wpjson_url = get_field( 'benson_wpjson_url', $post->ID );
 		$animate = (in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngAnimate' : '');
 		$sanitize = (in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngSanitize' : '');
+=======
+			wp_enqueue_script( $this->benson.'app', plugin_dir_url( __FILE__ ) . 'js/benson-public.js', array('angular'), $this->version, false );
+		}
+>>>>>>> b9db4f352916c310b5bdcce1177dacdfc56a8b22
 
 		echo "<script type='text/javascript'>
 					//<![CDATA[
