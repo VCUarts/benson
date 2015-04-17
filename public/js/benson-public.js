@@ -1,5 +1,6 @@
 var ngModules = [];
 if ( angular_animate ) { ngModules.push(angular_animate) };
+if ( angular_paginate ) { ngModules.push(angular_paginate) };
 if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
 
 // Code goes here

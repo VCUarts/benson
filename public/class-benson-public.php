@@ -113,16 +113,21 @@ class Benson_Public {
 		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
 
 		global $post;
-		if ( in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ) {
-			wp_enqueue_script( 'angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-sanitize.js', array(), $this->version, true );
-		}
+		if ( get_field( 'benson_angular_modules', $post->ID ) ){
+			if ( in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
+				wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-animate.js', array(), $this->version, true );
+			}
 
-		if ( in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
-			wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-animate.js', array(), $this->version, true );
+			if ( in_array( 'paginate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
+				wp_enqueue_script( 'angular-paginate', plugin_dir_url( __FILE__ ) . 'js/modules/dirPagination.js', array(), $this->version, true );
+			}
+
+			if ( in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ) {
+				wp_enqueue_script( 'angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-sanitize.js', array(), $this->version, true );
+			}
 		}
 
 		wp_enqueue_script( $this->benson.'app', plugin_dir_url( __FILE__ ) . 'js/benson-public.js', array('angular'), $this->version, true );
-
 	}
 
 
@@ -131,13 +136,17 @@ class Benson_Public {
 
 		global $post;
 		$benson_wpjson_url = get_field( 'benson_wpjson_url', $post->ID );
-		$animate = (in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngAnimate' : '');
-		$sanitize = (in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngSanitize' : '');
+		if ( get_field( 'benson_angular_modules', $post->ID ) ){
+			$animate = (in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngAnimate' : '');
+			$paginate = (in_array( 'paginate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'angularUtils.directives.dirPagination' : '');
+			$sanitize = (in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngSanitize' : '');
+		}
 
 		echo "<script type='text/javascript'>
 					//<![CDATA[
 					var wpjson_url = '$benson_wpjson_url';
 					var angular_animate = '$animate';
+					var angular_paginate = '$paginate';
 					var angular_sanitize = '$sanitize';
 					//]]>
 					</script>";

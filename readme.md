@@ -52,3 +52,8 @@ Because he is a gumball machine, also known as The Park's manager. [[source]](ht
 
 ![benson](http://i.imgur.com/jJZwrIE.png)
 
+#### Change log
+
+v.1.1
+Added pagination module option 
+https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
