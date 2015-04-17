@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://github.com/VCUarts
- * @since             1.1
+ * @since             1.0
  * @package           Benson
  *
  * @wordpress-plugin
