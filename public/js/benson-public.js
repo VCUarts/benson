@@ -11,6 +11,7 @@ if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
 
       var onDataComplete = function(data){
         $scope.data = data;
+        $scope.spinner = false;
       }
 
       var onError = function (response) {
@@ -19,6 +20,8 @@ if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
 
       wpjson.getData().then(onDataComplete, onError);
 
+      $scope.spinner = true;
+      
     };
 
     app.controller("MainController", ["$scope", "wpjson", MainController]);
