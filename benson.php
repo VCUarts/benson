@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://github.com/VCUarts
- * @since             1.0.0
+ * @since             1.1
  * @package           Benson
  *
  * @wordpress-plugin
  * Plugin Name:       Benson
  * Plugin URI:        https://github.com/VCUarts/benson.git
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
- * Version:           1.0.0
+ * Description:       Provides a simple Angular integration with the WP REST API.
+ * Version:           1.1
  * Author:            VCUarts
  * Author URI:        https://github.com/VCUarts
  * License:           GPL-2.0+
