@@ -110,10 +110,12 @@ class Benson_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
 
 		global $post;
 		if ( get_field( 'benson_angular_modules', $post->ID ) ){
+			
+			wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
+
 			if ( in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
 				wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-animate.js', array(), $this->version, true );
 			}
