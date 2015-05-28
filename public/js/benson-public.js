@@ -11,7 +11,7 @@ if ( angular_filter ) { ngModules.push(angular_filter) };
     var MainController = function ($scope, wpjson) {
 
       var onDataComplete = function(data){
-        $scope.persons = data;
+        $scope.data = data;
         $scope.spinner = false;
       }
 
