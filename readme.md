@@ -2,27 +2,27 @@
 
 Simple Angular integration with the WP REST API. Takes an endpoint and binds it to scope so you can use mustache in your templates and the WordPress HTML editor.
 
-## Description 
+## Description
 
 Benson accepts a local endpoint from your wordpress install, binds the result to scope and makes that available to your templates and the WordPress HTML editor.
 
 Supports ACF.
 
-## Installation 
+## Installation
 
 1. Upload benson to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Add an endpoint to a post or page
 
-## Frequently Asked Questions 
+## Usage
+1. Add an endpoint to a post or page
+2. Check any modules you want to include
+3. Write your controllers in a wordpress template or within the HTML editor.
+
+## Frequently Asked Questions
 
 ### Where do I get my endpoint?
 
 Use [this](https://github.com/WP-API/WP-API) for now. Eventually it'll be part of core.
-
-### Where do I put my endpoint? 
-
-Ummm... you can't. It's not done yet... sorry.
 
 ### How do I template?
 
@@ -35,11 +35,11 @@ Use ng-app="benson" and ng-controller="MainController" like this:
     {{content}}
   </div>
 </div>
-``` 
+```
 
 Check out the [Angular docs](https://docs.angularjs.org/guide/templates) for more info.
 
-### How do I sanitize html? 
+### How do I sanitize html?
 
 use ng-bind-html like this
 ```
@@ -58,5 +58,5 @@ v1.1.1
 Add support for loading animations
 
 v1.1
-Added pagination module option 
+Added pagination module option
 https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
