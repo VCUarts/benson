@@ -154,7 +154,8 @@ public function benson_ACF() {
 				'choices' => array (
 					'animate' => 'Animate',
 					'paginate' => 'Paginate',
-					'sanitize' => 'Sanitize'
+					'sanitize' => 'Sanitize',
+					'filter' => 'Filter'
 				),
 				'default_value' => array (
 				),

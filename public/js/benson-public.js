@@ -2,6 +2,7 @@ var ngModules = [];
 if ( angular_animate ) { ngModules.push(angular_animate) };
 if ( angular_paginate ) { ngModules.push(angular_paginate) };
 if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
+if ( angular_filter ) { ngModules.push(angular_filter) };
 
 // Code goes here
 (function () {
@@ -10,7 +11,7 @@ if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
     var MainController = function ($scope, wpjson) {
 
       var onDataComplete = function(data){
-        $scope.data = data;
+        $scope.persons = data;
         $scope.spinner = false;
       }
 

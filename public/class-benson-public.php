@@ -116,6 +116,10 @@ class Benson_Public {
 			
 			wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
 
+			if ( in_array( 'filter', get_field( 'benson_angular_modules', $post->ID ) ) ) {
+				wp_enqueue_script( 'angular-filter', 'https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.4/angular-filter.min.js', array(), $this->version, true );
+			}
+
 			if ( in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
 				wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-animate.js', array(), $this->version, true );
 			}
@@ -142,6 +146,7 @@ class Benson_Public {
 			$animate = (in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngAnimate' : '');
 			$paginate = (in_array( 'paginate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'angularUtils.directives.dirPagination' : '');
 			$sanitize = (in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngSanitize' : '');
+			$filter = (in_array( 'filter', get_field( 'benson_angular_modules', $post->ID ) ) ? 'angular.filter' : '');
 		}
 
 		echo "<script type='text/javascript'>
@@ -150,6 +155,7 @@ class Benson_Public {
 					var angular_animate = '$animate';
 					var angular_paginate = '$paginate';
 					var angular_sanitize = '$sanitize';
+					var angular_filter = '$filter';
 					//]]>
 					</script>";
 	}
