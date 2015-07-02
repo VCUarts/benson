@@ -27,6 +27,10 @@ if ( angular_filter ) { ngModules.push(angular_filter) };
 
     app.controller("MainController", ["$scope", "wpjson", MainController]);
 
+    app.config(['$compileProvider', function ($compileProvider) {
+      $compileProvider.debugInfoEnabled(false);
+    }]);
+
 }());
 
 (function () {
