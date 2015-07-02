@@ -147,17 +147,18 @@ class Benson_Public {
 			$paginate = (in_array( 'paginate', get_field( 'benson_angular_modules', $post->ID ) ) ? 'angularUtils.directives.dirPagination' : '');
 			$sanitize = (in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ? 'ngSanitize' : '');
 			$filter = (in_array( 'filter', get_field( 'benson_angular_modules', $post->ID ) ) ? 'angular.filter' : '');
+
+			echo "<script type='text/javascript'>
+						//<![CDATA[
+						var wpjson_url = '$benson_wpjson_url';
+						var angular_animate = '$animate';
+						var angular_paginate = '$paginate';
+						var angular_sanitize = '$sanitize';
+						var angular_filter = '$filter';
+						//]]>
+						</script>";
 		}
 
-		echo "<script type='text/javascript'>
-					//<![CDATA[
-					var wpjson_url = '$benson_wpjson_url';
-					var angular_animate = '$animate';
-					var angular_paginate = '$paginate';
-					var angular_sanitize = '$sanitize';
-					var angular_filter = '$filter';
-					//]]>
-					</script>";
 	}
 
 }
