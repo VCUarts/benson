@@ -82,7 +82,9 @@ class Benson {
 		 * @since    1.0.0
 		 */
 		function wp_api_encode_acf($data,$post,$context){
-			$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
+			if ( get_fields($post['ID'] ) ){
+				$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
+			}	
 			return $data;
 		}
 
