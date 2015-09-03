@@ -37,6 +37,25 @@ Use ng-app="benson" and ng-controller="MainController" like this:
 </div>
 ```
 
+#### Recipes
+
+##### Show posts with input for filtering
+```html
+<div ng-app="benson" ng-controller="MainController">
+
+  <form class="form-inline">
+      <input ng-model="query" type="text" placeholder="Filter by" autofocus>
+  </form>
+
+Showing {{(data | filter: query).length}} of {{data.length}} posts.
+
+  <div ng-repeat="post in data | filter: query">
+    <h1>{{post.title}}</h1>
+    <div ng-bind-html="post.content">{{post.content}}</div>
+  </div>
+</div>
+```
+
 Check out the [Angular docs](https://docs.angularjs.org/guide/templates) for more info.
 
 ### How do I sanitize html?
