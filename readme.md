@@ -56,6 +56,26 @@ Showing {{(data | filter: query).length}} of {{data.length}} posts.
 </div>
 ```
 
+#### Show posts with input for filtering and pagination
+```html
+<div ng-app="benson" ng-controller="MainController">
+
+  <form class="form-inline">
+      <input ng-model="query" type="text" placeholder="Filter by" autofocus>
+  </form>
+
+  Showing {{(data | filter: query).length}} of {{data.length}} posts.
+
+  <div dir-paginate="post in data | itemsPerPage: 5 | filter: query">
+    <h1>{{post.title}}</h1>
+    <div ng-bind-html="post.excerpt">{{post.excerpt}}</div>
+  </div>
+
+  <dir-pagination-controls></dir-pagination-controls>
+
+</div>
+```
+
 Check out the [Angular docs](https://docs.angularjs.org/guide/templates) for more info.
 
 ### How do I sanitize html?
