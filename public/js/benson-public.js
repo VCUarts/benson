@@ -22,6 +22,13 @@ if ( angular_filter ) { ngModules.push(angular_filter) };
       wpjson.getData().then(onDataComplete, onError);
 
       $scope.spinner = true;
+
+
+      $scope.query = "";
+
+      $scope.setQuery = function(term){
+        $scope.query = term;
+      }
       
     };
 
