@@ -16,13 +16,14 @@
  * Plugin Name:       Benson
  * Plugin URI:        https://github.com/VCUarts/benson.git
  * Description:       Provides a simple Angular integration with the WP REST API.
- * Version:           1.1.1
+ * Version:           1.05.00
  * Author:            VCUarts
  * Author URI:        https://github.com/VCUarts
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       benson
  * Domain Path:       /languages
+ * GitHub Plugin URI: VCUarts/benson
  */
 
 // If this file is called directly, abort.
