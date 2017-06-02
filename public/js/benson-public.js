@@ -1,11 +1,13 @@
 var ngModules = [];
-if ( angular_animate ) { ngModules.push(angular_animate) };
-if ( angular_paginate ) { ngModules.push(angular_paginate) };
-if ( angular_sanitize ) { ngModules.push(angular_sanitize) };
-if ( angular_filter ) { ngModules.push(angular_filter) };
+if ( 'undefined' !== typeof angular_animate ) { ngModules.push(angular_animate) };
+if ( 'undefined' !== typeof angular_paginate ) { ngModules.push(angular_paginate) };
+if ( 'undefined' !== typeof angular_sanitize ) { ngModules.push(angular_sanitize) };
+if ( 'undefined' !== typeof angular_filter ) { ngModules.push(angular_filter) };
 
 // Code goes here
 (function () {
+    if ( 'undefined' == typeof angular ) { return; };
+
     var app = angular.module("benson", ngModules);
 
     var MainController = function ($scope, wpjson) {
@@ -41,6 +43,7 @@ if ( angular_filter ) { ngModules.push(angular_filter) };
 }());
 
 (function () {
+    if ( 'undefined' == typeof angular ) { return; };
 
     var wpjson = function ($http) {
 
