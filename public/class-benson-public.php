@@ -115,14 +115,14 @@ class Benson_Public {
 		global $post;
 		if ( get_field( 'benson_angular_modules', $post->ID ) ) {
 
-			wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js', array(), $this->version, true );
+			wp_enqueue_script( 'angular', '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js', array(), $this->version, true );
 
 			if ( in_array( 'filter', get_field( 'benson_angular_modules', $post->ID ) ) ) {
 				wp_enqueue_script( 'angular-filter', 'https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.4/angular-filter.min.js', array(), $this->version, true );
 			}
 
 			if ( in_array( 'animate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
-				wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-animate.js', array(), $this->version, true );
+				wp_enqueue_script( 'angular-animate', '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js', array(), $this->version, true );
 			}
 
 			if ( in_array( 'paginate', get_field( 'benson_angular_modules', $post->ID ) ) ) {
@@ -130,7 +130,7 @@ class Benson_Public {
 			}
 
 			if ( in_array( 'sanitize', get_field( 'benson_angular_modules', $post->ID ) ) ) {
-				wp_enqueue_script( 'angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-sanitize.js', array(), $this->version, true );
+				wp_enqueue_script( 'angular-sanitize', '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-sanitize.min.js', array(), $this->version, true );
 			}
 		}
 
