@@ -7,3 +7,4 @@ npm-debug.log
 # ignore sass cache files
 .sass-cache/
 .DS_Store
+package-lock.json

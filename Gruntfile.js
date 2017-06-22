@@ -16,12 +16,10 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            all: [
-                'src/**/*.js'
-            ],
             options: {
-                jshintrc: '.jshintrc'
-            }
+                reporter: require('jshint-stylish')
+            },
+            target: ['src/**/*.js']
         },
 
         concat: {   
@@ -70,5 +68,6 @@ module.exports = function(grunt) {
     // cleans directories, does everything for css, js, and images for deploy
     grunt.registerTask('build', ['concat', 'ngAnnotate', 'uglify']);
 
+    grunt.registerTask('default', ['jshint']);
 
 };

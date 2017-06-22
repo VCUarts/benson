@@ -1,4 +1,8 @@
 (function () {
+    'use strict';
+
+    var wpjson_url;
+    var angular;
 
     var wpjson = function ($http) {
 

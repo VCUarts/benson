@@ -6,11 +6,12 @@
     "url": "git://github.com/luetkemj/bp.git"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-ng-annotate": "^0.10.0"
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "~latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-ng-annotate": "latest",
+    "jshint-stylish": "latest"
   }
 }

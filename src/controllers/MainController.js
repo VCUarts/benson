@@ -1,5 +1,8 @@
 // Code goes here
 (function () {
+    'use strict';
+
+    var angular;
 
     var app = angular.module("benson", ['ngSanitize']);
 
@@ -7,7 +10,7 @@
 
       var onDataComplete = function(data){
         $scope.data = data;
-      }
+      };
 
       var onError = function (response) {
         $scope.error = 'Could not fetch data because "' + response + '"';
